@@ -1,38 +1,33 @@
 #include <Wire.h>
-#include <Adafruit_SSD1306.h> // For OLED display
+#include <Adafruit_SSD1306.h>
 
 // OLED display configuration
-#define SCREEN_WIDTH 128 // OLED display width, in pixels
-#define SCREEN_HEIGHT 64 // OLED display height, in pixels
-#define OLED_RESET -1    // Reset pin not used for I2C
-#define SCREEN_ADDRESS 0x3C // I2C address for the OLED display (matches Wokwi JSON)
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+#define SCREEN_ADDRESS 0x3C
 
-// Initialize Adafruit_SSD1306 object
+// Adafruit_SSD1306 Object
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 void setup() {
-  // Initialize serial communication for debugging
   Serial.begin(115200);
   Serial.println("Initializing...");
 
-  // Initialize OLED display
-  if (!display.begin(SSD1306_BLACK, SCREEN_ADDRESS)) { // Use SCREEN_ADDRESS directly
+  if (!display.begin(SSD1306_BLACK, SCREEN_ADDRESS)) {
     Serial.println("SSD1306 allocation failed");
-    for (;;); // Don't proceed, loop forever
+    for (;;);
   }
 
-  // Clear the display buffer
   display.clearDisplay();
-
-  // Show "Hello, World!" on the OLED
-  display.setTextSize(1);             // Normal 1:1 pixel scale
-  display.setTextColor(SSD1306_WHITE); // Draw white text
-  display.setCursor(0, 0);            // Start at top-left corner
-  display.println("Hello, World!");   // Print text
-  display.display();                  // Update the display with the content
+  
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.println("Hello, World!");
+  display.display();
 }
 
 void loop() {
-  // Nothing needed in loop for this example
-  delay(100); // Add a small delay
+  delay(100); // Small delay
 }
