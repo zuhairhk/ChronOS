@@ -1,8 +1,6 @@
-# ESP32 NTP Clock
+# ChronOS ESP32 Smart Watch System
 
-A simple clock that displays the time and date on an LCD1602 display. The time is synced via NTP.
-
-Use [Wokwi](https://marketplace.visualstudio.com/items?itemName=wokwi.wokwi-vscode) to simulate this project.
+A smartwatch created to fit my personal needs. Uses an SSD1306 display. The time is synced via NTP.
 
 ## Building
 
